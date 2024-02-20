@@ -75,8 +75,8 @@ if (!isset($_SESSION['userid'])) {
             <div class="columns-6">
                 <?php
                 include "koneksi.php";
-                $userid = $_SESSION['userid'];
-                $sql = mysqli_query($conn, "select * from komentarfoto,user where komentarfoto.userid=user.userid");
+                $fotoid = $_GET['fotoid'];
+                $sql = mysqli_query($conn, "select komentarfoto.*, user.namalengkap from komentarfoto left join user on komentarfoto.userid = user.userid where komentarfoto.fotoid = '$fotoid'");
                 while ($data = mysqli_fetch_array($sql)) {
                 ?>
                     <div class="break-inside-avoid flex flex-col bg-gray-200 px-2 py-1 rounded-lg">

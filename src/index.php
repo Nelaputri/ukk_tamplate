@@ -65,9 +65,16 @@ session_start();
                                     ?>
                                 </span>
                             </a>
-                            <a href="komentar.php?fotoid=<?= $data['fotoid'] ?>">
+                            <a href="komentar.php?fotoid=<?= $data['fotoid'] ?>" class="flex items-center">
                                 <span class="material-symbols-outlined text-blue-600 px-2 py-1 rounded-lg transition-all hover:scale-105">
                                     comment
+                                </span>
+                                <span>
+                                    <?php
+                                    $fotoid = $data['fotoid'];
+                                    $sql3 = mysqli_query($conn, "select * from komentarfoto where fotoid='$fotoid'");
+                                    echo mysqli_num_rows($sql3);
+                                    ?>
                                 </span>
                             </a>
                         </div>
